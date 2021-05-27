@@ -8,7 +8,12 @@ module.exports = {
     }
   },
   "moduleNameMapper": {
-    "\\.(css|less|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
+    "\\.(css|less|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy",
+    "^shared(.*)$": "<rootDir>/src/app/shared$1",
+    "^components(.*)$": "<rootDir>/src/app/components$1",
+    "^assets(.*)$": "<rootDir>/assets$1",
+    "^i18n(.*)$": "<rootDir>/src/i18n$1",
+    "^layout(.*)$": "<rootDir>/src/app/layout$1",
   },
   "moduleDirectories": ["node_modules", "src"],
   setupFilesAfterEnv: [
