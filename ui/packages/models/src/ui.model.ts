@@ -76,6 +76,7 @@ export interface ConnectorProperty {
     'CONNECTION_ADVANCED_PUBLICATION' | 
     'CONNECTION_ADVANCED_SSL' | 
     'FILTERS' |
+    'TOPIC_GROUP' |
     'CONNECTOR' |
     'CONNECTOR_NAME' | 
     'CONNECTOR_ADVANCED' | 
@@ -105,7 +106,8 @@ export interface ConnectorProperty {
           'CLASS' | 
           'PASSWORD'|
           'COL_MASK_OR_TRUNCATE' |
-          'COL_MASK_HASH_SALT';
+          'COL_MASK_HASH_SALT' |
+          'TOPIC_GROUP';
 }
 
 /**

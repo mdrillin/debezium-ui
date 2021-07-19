@@ -1,0 +1,9 @@
+.form-topic-group-component{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    border-width: 1px;
+    border-color: var(--pf-global--BorderColor--100);
+    border-style: dashed;
+    border-radius: 5px;
+}

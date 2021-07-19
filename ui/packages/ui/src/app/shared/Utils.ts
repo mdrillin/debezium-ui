@@ -154,6 +154,7 @@ export enum PropertyName {
   TIME_PRECISION_MODE = "time.precision.mode",
   TOASTED_VALUE_PLACEHOLDER = "toasted.value.placeholder",
   TOMBSTONES_ON_DELETE = "tombstones.on.delete",
+  TOPIC_GROUP = "topic.group",
   XMIN_FETCH_INTERVAL_MS = "xmin.fetch.interval.ms"
 }
 
@@ -476,6 +477,20 @@ export function getFormattedProperties (propertyDefns: ConnectorProperty[], conn
           break;
       }
     }
+    // TODO: Temporary - adds topic group property.  Will need to remove when backend property is added.
+    if (formattedPropertyDefns.filter(e => e.name === "topic.group").length === 0) {
+      formattedPropertyDefns.push(
+        {
+          name: "topic.group",
+          category: "CONNECTOR_ADVANCED",
+          description: "bogus",
+          displayName: "Topic Groups",
+          isMandatory: false,
+          type: "TOPIC_GROUP"
+        } as ConnectorProperty
+      );
+    }
+
   } else if (connectorTypeId === ConnectorTypeId.MONGO) {
     for (const propDefn of formattedPropertyDefns) {
       propDefn.gridWidthSm = 12;

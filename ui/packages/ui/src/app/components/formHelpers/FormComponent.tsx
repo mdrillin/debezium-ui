@@ -11,6 +11,7 @@ import { FormMaskHashSaltComponent } from "./FormMaskHashSaltComponent";
 import { FormMaskOrTruncateComponent } from "./FormMaskOrTruncateComponent";
 import { FormSelectComponent } from "./FormSelectComponent";
 import { FormSwitchComponent } from "./FormSwitchComponent";
+import { FormTopicGroupComponent } from "./FormTopicGroupComponent";
 
 export interface IFormComponentProps {
   propertyDefinition: ConnectorProperty;
@@ -164,7 +165,30 @@ export const FormComponent: React.FunctionComponent<IFormComponentProps> = (
         validated={getValidate()}
       />
     );
-
+    // Topic Groups
+  } else if (props.propertyDefinition.type === "TOPIC_GROUP") {
+    return (
+      <FormTopicGroupComponent
+        description={props.propertyDefinition.description}
+        isRequired={props.propertyDefinition.isMandatory}
+        fieldId={props.propertyDefinition.name}
+        name={props.propertyDefinition.name}
+        helperTextInvalid={
+          getInvalidFilterMsg(
+            props.propertyDefinition.name,
+            props.invalidMsg
+          ) || props.helperTextInvalid
+        }
+        label={props.propertyDefinition.displayName}
+        i18nAddTopicGroupText={t("addTopicGroup")}
+        i18nAddTopicGroupTooltip={t("addTopicGroupTooltip")}
+        i18nRemoveTopicGroupTooltip={t("removeTopicGroupTooltip")}
+        propertyChange={props.propertyChange}
+        setFieldValue={props.setFieldValue}
+        validated={getValidate()}
+      />
+    );
+  
     // Any other - Text input
   } else {
     return (
